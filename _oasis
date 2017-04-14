@@ -1,0 +1,36 @@
+Name: subtype-refinement
+Version: 0.1
+Synopsis: Refinement types encoded with private types in OCaml.
+Authors: Marco Aurélio da Silva <marcoonroad@gmail.com>
+License: MIT
+
+Description: Generating refinement constraints through OCaml's Applicative Functors and private types.
+Homepage: http://github.com/marcoonroad/subtype-refinement
+
+OASISFormat: 0.4
+BuildTools: ocamlbuild
+Plugins: META (0.4), DevFiles (0.4)
+
+Library "subtype-refinement"
+  Path: lib
+  Modules: SubtypeRefinement
+
+SourceRepository master
+  Type: git
+  Location: http://github.com/marcoonroad/subtype-refinement.git
+  Branch: master
+  Browser: http://github.com/marcoonroad/subtype-refinement
+
+Executable "constraint"
+  Path: lib_test
+  MainIs: constraint.ml
+  Build$: flag(tests)
+  CompiledObject: byte
+  Install: false
+  BuildDepends: subtype-refinement, oUnit
+
+Test "constraint"
+  Run$: flag(tests)
+  TestTools: constraint
+  Command: $constraint
+  WorkingDirectory: lib_test
