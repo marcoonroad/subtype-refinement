@@ -1,5 +1,5 @@
 open OUnit2
-open SubtypeRefinement
+open Subtype_refinement
 
 module Natural = Refine (struct
   type t = int
