@@ -4,6 +4,20 @@ Refinement types encoded with private types in OCaml.
 
 [![Build Status](https://travis-ci.org/marcoonroad/subtype-refinement.svg?branch=master)](https://travis-ci.org/marcoonroad/subtype-refinement)
 
+## Installation
+
+Production/release version:
+```
+$ opam install subtype-refinement
+```
+
+Development/snapshot version (on this project directory):
+```
+$ opam install .
+```
+
+## Usage
+
 This package provides statically checked refinement types, but casts into such refined types
 are deferred until runtime (this is due the use of functions as constraints, so these constraints
 must be evaluated before they are applied to "type-check" some value). By "statically checked", I mean that this
@@ -38,10 +52,10 @@ end;;
 ```
 
 Where `where` is the refinement constraint carried together. To apply the refinement functor, we will rather use the pattern below (assuming
-that you have installed this library, it is required as `"subtype-refinement"` and provides the `SubtypeRefinement` module):
+that you have installed this library, it is required as `"subtype-refinement"` and provides the `Subtype_refinement` module):
 
 ```ocaml
-open SubtypeRefinement;;
+open Subtype_refinement;;
 
 module Result = Refine (TypeClass);;
 ```
@@ -69,7 +83,7 @@ Where `value` is our known value to compare against. A different functor for sin
 the same):
 
 ```ocaml
-open SubtypeRefinement;;
+open Subtype_refinement;;
 
 module SingletonResult = Singleton (SingletonTypeClass);;
 ```
@@ -77,7 +91,7 @@ module SingletonResult = Singleton (SingletonTypeClass);;
 'Cause OCaml provides first-class modules through explicit packing/unpacking, a shorter version of the refinement functor is provided as:
 
 ```ocaml
-open SubtypeRefinement;;
+open Subtype_refinement;;
 
 let result = refine constraint;;
 ```
@@ -90,5 +104,3 @@ module Module = (val result : Subtype with type super = t);;
 
 Where `t` is the type used in the constraint. The short counterpart of singleton refinements is not provided due my laziness, so maybe
 tomorrow I'll find my way home.
-
-EOF
