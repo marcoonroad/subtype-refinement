@@ -4,6 +4,7 @@ Refinement types encoded with private types in OCaml.
 
 [![Build Status](https://travis-ci.org/marcoonroad/subtype-refinement.svg?branch=master)](https://travis-ci.org/marcoonroad/subtype-refinement)
 
+
 ## Installation
 
 Production/release version:
@@ -15,6 +16,7 @@ Development/snapshot version (on this project directory):
 ```
 $ opam install .
 ```
+
 
 ## Usage
 
@@ -104,3 +106,9 @@ module Module = (val result : Subtype with type super = t);;
 
 Where `t` is the type used in the constraint. The short counterpart of singleton refinements is not provided due my laziness, so maybe
 tomorrow I'll find my way home.
+
+
+## Contributors
+
+- [zapashcanon](https://github.com/zapashcanon)
+
